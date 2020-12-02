@@ -22,3 +22,40 @@ type CatIndex struct {
 	StoreSize    string `json:"store.size"`
 	Uuid         string `json:"uuid"`
 }
+
+// response from /_tasks/<TASKID>
+type GetTaskIdResponse struct {
+	Completed bool       `json:"completed"`
+	Task      TaskObject `json:"task"`
+}
+type TaskObject struct {
+	Node             string `json:"node"`
+	Id               int64  `json:"id"`
+	Type             string `json:"type"`
+	Action           string `json:"action"`
+	Status           StatusObject
+	Description      string        `json:"description"`
+	StartTimeMillis  int64         `json:"start_time_in_millis"`
+	RunningTimeNanos int64         `json:"running_time_in_nanos"`
+	Cancellable      bool          `json:"cancellable"`
+	Headers          HeadersObject `json:"headers"`
+}
+type StatusObject struct {
+	Total                int64 `json:"total"`
+	Updated              int64 `json:"updated"`
+	Created              int64 `json:"created"`
+	Deleted              int64 `json:"deleted"`
+	Batches              int64 `json:"batches"`
+	VersionConflicts     int64 `json:"version_conflicts"`
+	Noops                int64 `json:"noops"`
+	Retries              RetriesObject
+	ThrottledMillis      int64   `json:"throttled_millis"`
+	RequestsPerSecond    float64 `json:"requests_per_second"`
+	ThrottledUntilMillis int64   `json:"throttled_until_milis"`
+}
+type RetriesObject struct {
+	Bulk   int64 `json:"bulk"`
+	Search int64 `json:"search"`
+}
+type HeadersObject struct {
+}
