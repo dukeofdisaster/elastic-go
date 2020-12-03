@@ -32,7 +32,7 @@ type GetTaskIdResponse struct {
 }
 type ResponseObject struct {
 	Took                 int64         `json:"took"`
-	TimedOut             int64         `json:"timed_out"`
+	TimedOut             bool          `json:"timed_out"`
 	Total                int64         `json:"total"`
 	Updated              int64         `json:"updated"`
 	Created              int64         `json:"created"`
