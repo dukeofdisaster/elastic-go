@@ -12,13 +12,14 @@ type GetNodeStatsResponse struct {
 	OS          OsObject       `json:"os,omitempty"`
 	Pipeline    PipelineObject `json:"pipeline,omitempty"`
 	//Pipelines   []PipelinesItemObject `json:"pipelines,omitempty"`
-	Pipelines []map[string]interface{} `json:"pipelines,omitempty"`
-	Process   ProcessObject            `json:"process,omitempty"`
-	Queue     QueueObject              `json:"queue,omitempty"`
-	Reloads   ReloadsObject            `json:"reloads,omitempty"`
-	Snapshot  bool                     `json:"snapshot,omitempty"`
-	Status    string                   `json:"status,omitempty"`
-	Version   string                   `json:"version,omitempty"`
+	//Pipelines []map[string]interface{} `json:"pipelines,omitempty"`
+	Pipelines map[string]interface{} `json:"pipelines,omitempty"`
+	Process   ProcessObject          `json:"process,omitempty"`
+	Queue     QueueObject            `json:"queue,omitempty"`
+	Reloads   ReloadsObject          `json:"reloads,omitempty"`
+	Snapshot  bool                   `json:"snapshot,omitempty"`
+	Status    string                 `json:"status,omitempty"`
+	Version   string                 `json:"version,omitempty"`
 }
 
 // ReloadsObject contains count of reload success/fail
