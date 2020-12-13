@@ -16,16 +16,16 @@ type GetNodeStatsResponse struct {
 	Pipelines map[string]interface{} `json:"pipelines,omitempty"`
 	Process   ProcessObject          `json:"process,omitempty"`
 	Queue     QueueObject            `json:"queue"`
-	Reloads   ReloadsObject          `json:"reloads,omitempty"`
-	Snapshot  bool                   `json:"snapshot,omitempty"`
+	Reloads   ReloadsObject          `json:"reloads"`
+	Snapshot  bool                   `json:"snapshot"`
 	Status    string                 `json:"status,omitempty"`
 	Version   string                 `json:"version,omitempty"`
 }
 
 // ReloadsObject contains count of reload success/fail
 type ReloadsObject struct {
-	Successes int64 `json:"successes,omitempty"`
-	Failures  int64 `json:"failures,omitempty"`
+	Successes int64 `json:"successes"`
+	Failures  int64 `json:"failures"`
 }
 
 // QueueObject contains events_count; don't omit empty, we need to know if zero
@@ -88,15 +88,15 @@ type CPUAcctObject struct {
 type CPUObject struct {
 	ControlGroup    string        `json:"control_group,omitempty"`
 	CfsQuotaMicros  int64         `json:"cfs_quota_micros,omitempty"`
-	Stat            CPUStatObject `json:"stat,omitempty"`
+	Stat            CPUStatObject `json:"stat"`
 	CfsPeriodMicros int64         `json:"cfs_period_micros,omitempty"`
 }
 
 // CPUStatObject contains 3 metrics about stat
 type CPUStatObject struct {
-	NumberOfElapsedPeriods int64 `json:"number_of_elapsed_periods,omitempty"`
-	NumberOfTimesThrottled int64 `json:"number_of_times_throttled,omitempty"`
-	TimeThrottledNanos     int64 `json:"time_throttled_nanos,omitempty"`
+	NumberOfElapsedPeriods int64 `json:"number_of_elapsed_periods"`
+	NumberOfTimesThrottled int64 `json:"number_of_times_throttled"`
+	TimeThrottledNanos     int64 `json:"time_throttled_nanos"`
 }
 
 // EventsObject is the top level events struct in the response
