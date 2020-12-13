@@ -145,6 +145,33 @@ type PoolsObject struct {
 	UptimeInMillis int64 `json:"uptime_in_millis,omitempty"`
 }
 
+// SurvivorObject contains bytes info relevant to survivors
+type SurvivorObject struct {
+	CommittedInBytes int64 `json:"comitted_in_bytes,omitempty"`
+	MaxInBytes       int64 `json:"max_in_bytes,omitempty"`
+	PeakMaxInBytes   int64 `json:"peak_max_in_bytes,omitempty"`
+	PeakUsedInBytes  int64 `json:"peak_used_in_bytes,omitempty"`
+	UsedInBytes      int64 `json:"used_in_bytes,omitempty"`
+}
+
+// YoungObject contains bytes info relevent to young gc
+type YoungObject struct {
+	CommittedInBytes int64 `json:"comitted_in_bytes,omitempty"`
+	MaxInBytes       int64 `json:"max_in_bytes,omitempty"`
+	PeakMaxInBytes   int64 `json:"peak_max_in_bytes,omitempty"`
+	PeakUsedInBytes  int64 `json:"peak_used_in_bytes,omitempty"`
+	UsedInBytes      int64 `json:"used_in_bytes,omitempty"`
+}
+
+// OldObject contains bytes info relevant to old gc
+type OldObject struct {
+	CommittedInBytes int64 `json:"comitted_in_bytes,omitempty"`
+	MaxInBytes       int64 `json:"max_in_bytes,omitempty"`
+	PeakMaxInBytes   int64 `json:"peak_max_in_bytes,omitempty"`
+	PeakUsedInBytes  int64 `json:"peak_used_in_bytes,omitempty"`
+	UsedInBytes      int64 `json:"used_in_bytes,omitempty"`
+}
+
 // GCObject is part of JvmObject and contains children of type CollectorsObject
 type GCObject struct {
 	Collectors CollectorsObject `json:"collectors,omitempty"`
