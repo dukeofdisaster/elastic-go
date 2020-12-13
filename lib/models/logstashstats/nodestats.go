@@ -15,7 +15,7 @@ type GetNodeStatsResponse struct {
 	//Pipelines []map[string]interface{} `json:"pipelines,omitempty"`
 	Pipelines map[string]interface{} `json:"pipelines,omitempty"`
 	Process   ProcessObject          `json:"process,omitempty"`
-	Queue     QueueObject            `json:"queue,omitempty"`
+	Queue     QueueObject            `json:"queue"`
 	Reloads   ReloadsObject          `json:"reloads,omitempty"`
 	Snapshot  bool                   `json:"snapshot,omitempty"`
 	Status    string                 `json:"status,omitempty"`
@@ -28,17 +28,18 @@ type ReloadsObject struct {
 	Failures  int64 `json:"failures,omitempty"`
 }
 
-// QueueObject contains events_count
+// QueueObject contains events_count; don't omit empty, we need to know if zero
 type QueueObject struct {
-	EventsCount int64 `json:"events_count,omitempty"`
+	EventsCount int64 `json:"events_count"`
 }
 
 // ProcessObject contains metadata about file desriptors, mem, and cpu
 type ProcessObject struct {
-	CPU                 ProcCPUObject `json:"cpu,omitempty"`
-	MaxFileDescriptors  int64         `json:"max_file_descriptors,omitempty"`
-	Mem                 ProcMemObject `json:"mem,omitempty"`
-	OpenFileDescriptors int64         `json:"open_file_descriptors,omitempty"`
+	CPU                     ProcCPUObject `json:"cpu,omitempty"`
+	MaxFileDescriptors      int64         `json:"max_file_descriptors,omitempty"`
+	Mem                     ProcMemObject `json:"mem,omitempty"`
+	OpenFileDescriptors     int64         `json:"open_file_descriptors,omitempty"`
+	PeakOpenFileDescriptors int64         `json:"peak_open_file_descriptors,omitempty"`
 }
 
 // ProcCPUObject contains info about total cpu and load average up to 15m
