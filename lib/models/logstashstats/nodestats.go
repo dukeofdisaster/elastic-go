@@ -52,7 +52,7 @@ type ProcCPUObject struct {
 type LoadAverageObject struct {
 	OneMin     float64 `json:"1m,omitempty"`
 	FiveMin    float64 `json:"5m,omitempty"`
-	FifteenMin float64 `json:15m,omitempty"`
+	FifteenMin float64 `json:"15m,omitempty"`
 }
 
 // ProcMemObject is part of a process object that contains info about virt mem
@@ -124,7 +124,7 @@ type JvmObject struct {
 // ThreadsObject contains meta about the number of threads in the JVM
 type ThreadsObject struct {
 	Count     int64 `json:"count,omitempty"`
-	PeakCount int64 `json:peak_count,omitempty"`
+	PeakCount int64 `json:"peak_count,omitempty"`
 }
 
 // MemObject conains meta about the JVM heap
