@@ -9,7 +9,7 @@ type CatTaskItem struct {
 	Node         string `json:"node"`
 	ParentTaskID string `json:"parent_task_id"`
 	RunningTime  string `json:"running_time"`
-	StartTime    int64  `json:"start_time"`
+	StartTime    int64  `json:"start_time,string"`
 	TaskID       string `json:"task_id"`
 	Timestamp    string `json:"timestamp"`
 	Type         string `json:"type"`
