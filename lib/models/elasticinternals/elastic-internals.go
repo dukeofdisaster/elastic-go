@@ -9,6 +9,7 @@ type CatIndex struct {
 	// From the api these are all string; can't unmarshal string into int,
 	// so have to try parse int
 	//DocsCount   int64  `json:"docs.count"`
+    CreationDate int64 `json:"creation.date"`
 	DocsCount string `json:"docs.count"`
 	//DocsDeleted int64  `json:"docs.deleted"`
 	DocsDeleted string `json:"docs.deleted"`
